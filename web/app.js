@@ -133,7 +133,7 @@
 
   function drawBoard(g, you, myTurn) {
     const svg = $('board');
-    const n = g.size, m = 10, step = (100 - 2 * m) / (n - 1);
+    const n = g.size, m = 11.5, step = (100 - 2 * m) / (n - 1);
     const pos = (i) => m + i * step;
     svg.replaceChildren();
     svg.classList.toggle('my-turn', myTurn);
@@ -154,9 +154,9 @@
 
     const letters = 'ABCDEFGHJ';
     for (let i = 0; i < n; i++) {
-      const t1 = el('text', { x: pos(i), y: 5.2, 'font-size': 2.6, 'text-anchor': 'middle', fill: 'var(--wood-line)' });
+      const t1 = el('text', { x: pos(i), y: 4.6, 'font-size': 2.6, 'text-anchor': 'middle', fill: 'var(--wood-line)' });
       t1.textContent = letters[i];
-      const t2 = el('text', { x: 4.2, y: pos(i) + 0.9, 'font-size': 2.6, 'text-anchor': 'middle', fill: 'var(--wood-line)' });
+      const t2 = el('text', { x: 3.6, y: pos(i) + 0.9, 'font-size': 2.6, 'text-anchor': 'middle', fill: 'var(--wood-line)' });
       t2.textContent = n - i;
       svg.append(t1, t2);
     }
