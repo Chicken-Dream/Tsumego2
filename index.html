@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tsumego</title>
+  <meta name="description" content="Play 9×9 Go online against another player.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='7' fill='%23222'/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Tsumego</h1>
+      <p class="sub">9×9 Go, live against another player</p>
+    </header>
+
+    <section id="lobby" class="card" hidden>
+      <form id="join-form">
+        <label for="name">Username</label>
+        <input id="name" name="name" maxlength="20" autocomplete="nickname" placeholder="Enter a username" required>
+        <button type="submit" id="play-btn" class="primary">Play</button>
+      </form>
+      <p class="hint">The first player in the queue plays Black and moves first.</p>
+    </section>
+
+    <section id="waiting" class="card" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Waiting for an opponent…</p>
+      <button id="cancel-btn">Cancel</button>
+    </section>
+
+    <section id="game" hidden>
+      <div class="players">
+        <div class="player" id="p-black">
+          <span class="stone-icon black"></span>
+          <span class="pname"></span>
+          <span class="caps"></span>
+        </div>
+        <div class="player" id="p-white">
+          <span class="stone-icon white"></span>
+          <span class="pname"></span>
+          <span class="caps"></span>
+        </div>
+      </div>
+      <div id="status" role="status" aria-live="polite"></div>
+      <div class="board-wrap">
+        <svg id="board" viewBox="0 0 100 100" role="grid" aria-label="Go board"></svg>
+      </div>
+      <div class="controls">
+        <button id="pass-btn">Pass</button>
+        <button id="resign-btn" class="danger">Resign</button>
+      </div>
+      <div id="result" class="card" hidden>
+        <h2 id="result-title"></h2>
+        <p id="result-detail"></p>
+        <button id="again-btn" class="primary">Play again</button>
+      </div>
+    </section>
+
+    <p id="conn" class="conn"></p>
+    <div id="toast" role="alert" hidden></div>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
